@@ -7,8 +7,7 @@ Type Min(Type a, Type b) {
 
 template <>
 char Min<char>(char a, char b) {
-	printf("char:  数字以外は代入できません\n");
-	return 0;
+	return printf("char:  数字以外は代入できません\n");
 }
 
 int main() {
@@ -19,7 +18,7 @@ int main() {
 	// double型
 	printf("double:%lf\n", Min<double>(20.5555f, 30.3333f));
 	// char型
-	printf("%c", Min<char>('i', 'o'));
+	Min<char>('i', 'o');
 
 	return 0;
 }
