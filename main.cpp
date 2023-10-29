@@ -3,38 +3,65 @@
 #include <time.h>
 #include <stdlib.h>
 
-bool IsAnswer(int diceAnswer, int selectAnswer) {
-	// 正解なら
-	if (diceAnswer == selectAnswer) {
-		return true;
-	}// 不正解なら
+
+typedef int (*PFunc)();
+
+// サイコロの目をランダムで決定
+int RandomDice() {
+	int result = rand() % 6 + 1;
+	return result;
+}
+
+// 答え
+void Answer(PFunc p, int selectAnswer) {
+	printf("正解は...?\n");
+	// 3秒間処理を停止
+	Sleep(3000);
+
+	// 正解のサイコロ
+	int answerNum = p() % 2;
+	// 予想したサイコロ
+	int selectNum = selectAnswer % 2;
+	printf("答え%d\n", answerNum);
+	printf("予想%d\n", selectNum);
+
+	// 偶数なら丁
+	if (answerNum == 0) {
+		printf("丁!\n");
+		Sleep(1500);
+	}// 奇数なら半
+	else if(answerNum != 0){
+		printf("半!\n");
+		Sleep(1500);
+	}
+
+	// どちらも同じ数なら正解
+	if (selectNum == answerNum) {
+		printf("正解!!!\n\n");
+	}
 	else {
-		return false;
+		printf("不正解!!!\n\n");
 	}
 }
 
-char Answer(bool isAnswer) {
-	if (isAnswer) {
-		return printf("正解");
-	}
-	else {
-		return printf("不正解");
-	}
-}
 
 int main() {
-	char (*pfunc)(bool) = Answer;
-
-	// 入力した数字を入れる
-	int selectNum{};
-	printf("1~6の数字を入力してください:");
-	scanf_s("%d", &selectNum);
-
 	// サイコロの目をランダムで決定する
 	srand((unsigned int)time(nullptr));
-	int dice = rand() % 6 + 1;
+	// 関数ポインタ
+	PFunc pfunc = &RandomDice;
+	// 入力した予想
+	int selectAnswer;
 
-	pfunc(dice,selectNu);
+	printf("サイコロは丁( 2 )、半( 1 )どっちだ\n\n");
+	while (1) {
+		printf("丁( 2 )、半( 1 )どちらかを入力\n");
+		printf("予想:");
+		scanf_s("%d", &selectAnswer);
+
+		// 結果発表
+		Answer(pfunc, selectAnswer);
+	}
 
 	return 0;
 }
