@@ -4,19 +4,16 @@
 #include <stdlib.h>
 #include <functional>
 
-
-
 int main() {
-	// サイコロの目をランダムで決定する
+	// 乱数の初期値を生成
 	srand((unsigned int)time(nullptr));
-	// 
-	std::function<int()> pfunc = [&]() {
+	// サイコロの目をランダムで決定
+	std::function<int()> randomDice = [&]() {
 		int result = rand() % 6 + 1;
 		return result; 
 	};
-
-	// 結果発表
-	std::function<void(int, int)> fx = [&](int p, int selectAnswer) {
+	// 結果発表用の変数
+	std::function<void(int, int)> result = [&](int p, int selectAnswer) {
 		printf("正解は...?\n");
 		// 3秒間処理を停止
 		Sleep(3000);
@@ -25,8 +22,6 @@ int main() {
 		int answerNum = p % 2;
 		// 予想したサイコロ
 		int selectNum = selectAnswer % 2;
-		printf("答え%d\n", answerNum);
-		printf("予想%d\n", selectNum);
 
 		// 偶数なら丁
 		if (answerNum == 0) {
@@ -56,7 +51,7 @@ int main() {
 		scanf_s("%d", &selectAnswer);
 
 		// 結果発表
-		fx(pfunc(), selectAnswer);
+		result(randomDice(), selectAnswer);
 	}
 
 	return 0;
