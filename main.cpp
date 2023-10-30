@@ -22,8 +22,6 @@ void Answer(PFunc p, int selectAnswer) {
 	int answerNum = p() % 2;
 	// 予想したサイコロ
 	int selectNum = selectAnswer % 2;
-	printf("答え%d\n", answerNum);
-	printf("予想%d\n", selectNum);
 
 	// 偶数なら丁
 	if (answerNum == 0) {
