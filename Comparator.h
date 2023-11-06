@@ -4,7 +4,7 @@ template<typename T1, typename T2>
 
 class Comparator
 {
-public:// メンバ変数
+private:// メンバ変数
 	T1 num1_;
 	T2 num2_;
 
@@ -15,11 +15,12 @@ public:// メンバ関数
 	// 値の小さいほうを返す
 	T Min() {
 		if (num1_ < num2_) {
-			return static_cast<T>(num1);
+			return static_cast<T>(num1_);
 		}
 		else if (num1_ > num2_) {
 			return static_cast<T>(num2_);
 		}
+		return 0;
 	}
 
 };
