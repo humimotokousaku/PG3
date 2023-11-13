@@ -15,11 +15,11 @@ public:
 	///	User Method
 	/// 
 
-	// ‹ßÚUŒ‚
+	// è¿‘æ¥æ”»æ’ƒ
 	void Melee();
-	// ËŒ‚
+	// å°„æ’ƒ
 	void Fire();
-	// —£’E
+	// é›¢è„±
 	void Leave();
 
 private:
@@ -29,7 +29,7 @@ private:
 		LEAVE
 	};
 
-	// ƒƒ“ƒoŠÖ”ƒ|ƒCƒ“ƒ^ƒe[ƒuƒ‹
+	// ãƒ¡ãƒ³ãƒé–¢æ•°ãƒã‚¤ãƒ³ã‚¿ãƒ†ãƒ¼ãƒ–ãƒ«
 	static void (Enemy::* pfunc[])();
 };
 

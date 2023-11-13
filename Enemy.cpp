@@ -14,19 +14,19 @@ void Enemy::Update() {
 }
 
 void (Enemy::* Enemy::pfunc[])() = {
-	&Enemy::Melee,	// ‹ßÚ
-	&Enemy::Fire,	// ËŒ‚
-	&Enemy::Leave	// —£’E
+	&Enemy::Melee,	// è¿‘æ¥
+	&Enemy::Fire,	// å°„æ’ƒ
+	&Enemy::Leave	// é›¢è„±
 };
 
 void Enemy::Melee() {
-	printf("‹ßÚ\n");
+	printf("è¿‘æ¥\n");
 }
 
 void Enemy::Fire() {
-	printf("ËŒ‚\n");
+	printf("å°„æ’ƒ\n");
 }
 
 void Enemy::Leave() {
-	printf("—£’E\n\n");
+	printf("é›¢è„±\n\n");
 }
