@@ -9,9 +9,9 @@ public:
 	void size() override;
 	void draw() override;
 private:
-	// ‰¡•
+	// æ¨ªå¹…
 	int width_;
-	// c•
+	// ç¸¦å¹…
 	int height_;
 };
 

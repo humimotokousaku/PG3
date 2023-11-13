@@ -4,12 +4,12 @@ class IShape
 public:
 	IShape() = default;
 	~IShape() = default;
-	// –ÊÏ‚ğ‹‚ß‚é
+	// é¢ç©ã‚’æ±‚ã‚ã‚‹
 	virtual void size() = 0;
-	// –ÊÏ‚Ì’l‚ğ•\¦
+	// é¢ç©ã®å€¤ã‚’è¡¨ç¤º
 	virtual void draw() = 0;
 protected:
-	// –ÊÏ
+	// é¢ç©
 	float areaResult_;
 };
 

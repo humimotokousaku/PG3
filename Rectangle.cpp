@@ -4,9 +4,9 @@
 Rectangle::Rectangle() {
 	width_ = 20;
 	height_ = 30;
-	printf("‹éŒ`‚Ìî•ñ\n");
-	printf("c:%d\n", height_);
-	printf("‰¡:%d\n\n", width_);
+	printf("çŸ©å½¢ã®æƒ…å ±\n");
+	printf("ç¸¦:%d\n", height_);
+	printf("æ¨ª:%d\n\n", width_);
 }
 
 Rectangle::~Rectangle() {
@@ -14,13 +14,13 @@ Rectangle::~Rectangle() {
 }
 
 void Rectangle::size() {
-	// –ÊÏ‚ğ‹‚ß‚é(c x ‰¡)
+	// é¢ç©ã‚’æ±‚ã‚ã‚‹(ç¸¦ x æ¨ª)
 	areaResult_ = width_ * height_;
 
-	printf("‹éŒ`‚Ì–ÊÏ‚ğŒvZ\n");
-	printf("®:%d * %d\n\n",width_,height_);
+	printf("çŸ©å½¢ã®é¢ç©ã‚’è¨ˆç®—\n");
+	printf("å¼:%d * %d\n\n",width_,height_);
 }
 
 void Rectangle::draw() {
-	printf("‹éŒ`‚Ì–ÊÏ‚Í%.0f\n\n", areaResult_);
+	printf("çŸ©å½¢ã®é¢ç©ã¯%.0f\n\n", areaResult_);
 }

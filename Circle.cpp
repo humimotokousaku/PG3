@@ -3,8 +3,8 @@
 
 Circle::Circle() {
 	radius_ = 20;
-	printf("‰~‚Ìî•ñ\n");
-	printf("”¼Œa:%d\n\n", radius_);
+	printf("å††ã®æƒ…å ±\n");
+	printf("åŠå¾„:%d\n\n", radius_);
 }
 
 Circle::~Circle() {
@@ -12,15 +12,15 @@ Circle::~Circle() {
 }
 
 void Circle::size() {
-	// ‰~ü—¦
+	// å††å‘¨ç‡
 	const float PI = 3.14f;
-	// –ÊÏ‚ğ‹‚ß‚é(c x ‰¡@x ‰~ü—¦)
+	// é¢ç©ã‚’æ±‚ã‚ã‚‹(ç¸¦ x æ¨ªã€€x å††å‘¨ç‡)
 	areaResult_ = radius_ * radius_ * PI;
 
-	printf("‰~‚Ì–ÊÏ‚ğŒvZ\n");
-	printf("®:%d * %d * 3.14\n\n", radius_, radius_);
+	printf("å††ã®é¢ç©ã‚’è¨ˆç®—\n");
+	printf("å¼:%d * %d * 3.14\n\n", radius_, radius_);
 }
 
 void Circle::draw() {
-	printf("‰~‚Ì–ÊÏ‚Í%.2f\n\n", areaResult_);
+	printf("å††ã®é¢ç©ã¯%.2f\n\n", areaResult_);
 }
