@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 Japanese::Japanese() {
-	printf("ŠO‚Å˜b‚µ‚Ä‚¢‚éW’c‚ª‚¢‚é...\n");
+	printf("å¤–ã§è©±ã—ã¦ã„ã‚‹é›†å›£ãŒã„ã‚‹...\n");
 }
 
 Japanese::~Japanese() {
@@ -10,5 +10,5 @@ Japanese::~Japanese() {
 }
 
 void Japanese::Talk() {
-	printf("“ú–{Œê‚Å˜b‚µ‚Ä‚¢‚é‚æ‚¤‚¾\n\n");
+	printf("æ—¥æœ¬èªã§è©±ã—ã¦ã„ã‚‹ã‚ˆã†ã \n\n");
 }

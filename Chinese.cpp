@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 Chinese::Chinese() {
-	printf("ŠO‚Å˜b‚µ‚Ä‚¢‚éW’c‚ª‚¢‚é...\n");
+	printf("å¤–ã§è©±ã—ã¦ã„ã‚‹é›†å›£ãŒã„ã‚‹...\n");
 }
 
 Chinese::~Chinese() {
@@ -10,5 +10,5 @@ Chinese::~Chinese() {
 }
 
 void Chinese::Talk() {
-	printf("’†‘Œê‚Å˜b‚µ‚Ä‚¢‚é‚æ‚¤‚¾\n\n");
+	printf("ä¸­å›½èªã§è©±ã—ã¦ã„ã‚‹ã‚ˆã†ã \n\n");
 }
