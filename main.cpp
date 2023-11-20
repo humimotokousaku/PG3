@@ -3,7 +3,6 @@
 #include <time.h>
 #include <stdlib.h>
 
-
 typedef int (*PFunc)();
 
 // サイコロの目をランダムで決定
@@ -13,15 +12,15 @@ int RandomDice() {
 }
 
 // 3秒間時間を止める
-void SetTimeout() {
-	Sleep(3000);
+void SetTimeout(int waitTime) {
+	Sleep(1000 * waitTime);
 }
 
 // 答え
 void Answer(PFunc p, int selectAnswer) {
 	printf("正解は...?\n");
 	// 3秒間処理を停止
-	SetTimeout();
+	SetTimeout(3);
 
 	// 正解のサイコロ
 	int answerNum = p() % 2;
@@ -31,11 +30,11 @@ void Answer(PFunc p, int selectAnswer) {
 	// 偶数なら丁
 	if (answerNum == 0) {
 		printf("丁!\n");
-		Sleep(1500);
+		SetTimeout(1.5f);
 	}// 奇数なら半
 	else if(answerNum != 0){
 		printf("半!\n");
-		Sleep(1500);
+		SetTimeout(1.5f);
 	}
 
 	// どちらも同じ数なら正解
