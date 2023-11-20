@@ -12,11 +12,16 @@ int RandomDice() {
 	return result;
 }
 
+// 3秒間時間を止める
+void SetTimeout() {
+	Sleep(3000);
+}
+
 // 答え
 void Answer(PFunc p, int selectAnswer) {
 	printf("正解は...?\n");
 	// 3秒間処理を停止
-	Sleep(3000);
+	SetTimeout();
 
 	// 正解のサイコロ
 	int answerNum = p() % 2;
@@ -41,7 +46,6 @@ void Answer(PFunc p, int selectAnswer) {
 		printf("不正解!!!\n\n");
 	}
 }
-
 
 int main() {
 	// サイコロの目をランダムで決定する
