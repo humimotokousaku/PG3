@@ -12,35 +12,42 @@ int main() {
 		int result = rand() % 6 + 1;
 		return result; 
 	};
+
+	// 指定した秒数処理を止める
+	std::function<void(int)> SetTimeout = [](int waitTime) {
+		Sleep(1000 * waitTime);
+	};
+
 	// 結果発表用の変数
-	std::function<void(int, int)> result = [&](int p, int selectAnswer) {
+	std::function<void(int, int, int)> result = [&](int answerDice, int selectAnswer,int waitTime) {
 		printf("正解は...?\n");
 		// 3秒間処理を停止
-		Sleep(3000);
+		SetTimeout(waitTime);
 
 		// 正解のサイコロ
-		int answerNum = p % 2;
+		int answerDiceNum = answerDice % 2;
 		// 予想したサイコロ
-		int selectNum = selectAnswer % 2;
+		int selectDiceNum = selectAnswer % 2;
 
 		// 偶数なら丁
-		if (answerNum == 0) {
+		if (answerDiceNum == 0) {
 			printf("丁!\n");
-			Sleep(1500);
+			SetTimeout(waitTime);
 		}// 奇数なら半
-		else if (answerNum != 0) {
+		else if (answerDiceNum != 0) {
 			printf("半!\n");
-			Sleep(1500);
+			SetTimeout(waitTime);
 		}
 
 		// どちらも同じ数なら正解
-		if (selectNum == answerNum) {
+		if (selectDiceNum == answerDiceNum) {
 			printf("正解!!!\n\n");
 		}
 		else {
 			printf("不正解!!!\n\n");
 		}
 	};
+
 	// 入力した予想
 	int selectAnswer;
 
@@ -51,7 +58,7 @@ int main() {
 		scanf_s("%d", &selectAnswer);
 
 		// 結果発表
-		result(randomDice(), selectAnswer);
+		result(randomDice(), selectAnswer, 3);
 	}
 
 	return 0;
