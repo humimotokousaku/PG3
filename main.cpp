@@ -4,41 +4,38 @@
 #include <stdlib.h>
 #include <functional>
 
+// 指定した秒数処理を止める
+void SetTimeout(int waitTime) {
+	Sleep(1000 * waitTime);
+};
+
 int main() {
 	// 乱数の初期値を生成
 	srand((unsigned int)time(nullptr));
-	// サイコロの目をランダムで決定
-	std::function<int()> randomDice = [&]() {
-		int result = rand() % 6 + 1;
-		return result; 
-	};
-
-	// 指定した秒数処理を止める
-	std::function<void(int)> SetTimeout = [](int waitTime) {
-		Sleep(1000 * waitTime);
-	};
 
 	// 結果発表用の変数
-	std::function<void(int, int, int)> result = [&](int answerDice, int selectAnswer,int waitTime) {
+	std::function<void(int, int)> result = [&](int selectAnswer, int waitTime) {
 		printf("正解は...?\n");
 		// 3秒間処理を停止
 		SetTimeout(waitTime);
 
+		// ランダムでサイコロの目を決定
+		int diceNum = rand() % 6 + 1;
+
 		// 正解のサイコロ
-		int answerDiceNum = answerDice % 2;
+		int answerDiceNum = diceNum % 2;
 		// 予想したサイコロ
 		int selectDiceNum = selectAnswer % 2;
 
 		// 偶数なら丁
 		if (answerDiceNum == 0) {
 			printf("丁!\n");
-			SetTimeout(waitTime);
+			SetTimeout(1.5f);
 		}// 奇数なら半
 		else if (answerDiceNum != 0) {
 			printf("半!\n");
-			SetTimeout(waitTime);
+			SetTimeout(1.5f);
 		}
-
 		// どちらも同じ数なら正解
 		if (selectDiceNum == answerDiceNum) {
 			printf("正解!!!\n\n");
@@ -58,7 +55,7 @@ int main() {
 		scanf_s("%d", &selectAnswer);
 
 		// 結果発表
-		result(randomDice(), selectAnswer, 3);
+		result(selectAnswer, 3);
 	}
 
 	return 0;
