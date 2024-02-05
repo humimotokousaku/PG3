@@ -1,9 +1,11 @@
 ﻿#include <stdio.h>
 #include <vector>
 #include <algorithm>
+#include <string>
+#include <iostream>
 
 int main() {
-	std::vector<const char*> studentsID = {
+	std::vector<std::string> studentsID = {
 		"k022g0108@g.neec.ac.jp","k022g0045@g.neec.ac.jp","k022g0007@g.neec.ac.jp","k022g0015@g.neec.ac.jp","k022g0028@g.neec.ac.jp","k022g0049@g.neec.ac.jp","k022g0003@g.neec.ac.jp","k022g0044@g.neec.ac.jp","k022g0072@g.neec.ac.jp","k022g0055@g.neec.ac.jp","k021g1139@g.neec.ac.jp","k021g1485@g.neec.ac.jp","k021g1162@g.neec.ac.jp","k021g1278@g.neec.ac.jp","k020g1229@g.neec.ac.jp","k020g1202@g.neec.ac.jp","k020g1215@g.neec.ac.jp","k020g1416@g.neec.ac.jp",
 		"k020g1245@g.neec.ac.jp","k020g1506@g.neec.ac.jp","k020g1401@g.neec.ac.jp","k022g0089@g.neec.ac.jp","k022g0107@g.neec.ac.jp","k022g0135@g.neec.ac.jp","k022g0020@g.neec.ac.jp","k022g0046@g.neec.ac.jp","k022g0126@g.neec.ac.jp","k022g0068@g.neec.ac.jp","k022g1060@g.neec.ac.jp","k022g0019@g.neec.ac.jp","k022g0013@g.neec.ac.jp","k022g0024@g.neec.ac.jp","k022g0134@g.neec.ac.jp","k022g0123@g.neec.ac.jp","k022g0030@g.neec.ac.jp","k022g0053@g.neec.ac.jp",
 		"k022g0023@g.neec.ac.jp","k022g0041@g.neec.ac.jp","k022g0063@g.neec.ac.jp","k022g0059@g.neec.ac.jp","k022g0078@g.neec.ac.jp","k022g0011@g.neec.ac.jp","k022g0040@g.neec.ac.jp","k022g0088@g.neec.ac.jp","k022g0099@g.neec.ac.jp","k022g0060@g.neec.ac.jp","k022g0032@g.neec.ac.jp","k022g0087@g.neec.ac.jp","k022g0016@g.neec.ac.jp","k022g0116@g.neec.ac.jp","k022g0056@g.neec.ac.jp","k022g0009@g.neec.ac.jp","k022g0034@g.neec.ac.jp","k022g0062@g.neec.ac.jp",
@@ -16,9 +18,8 @@ int main() {
 	// 整理
 	printf("整理後\n");
 	sort(studentsID.begin(), studentsID.end());
-	for (std::vector<const char*>::iterator itr = studentsID.begin(); itr != studentsID.end(); itr++) {
-		printf(*itr);
-		printf("\n");
+	for (std::vector<std::string>::iterator itr = studentsID.begin(); itr != studentsID.end(); itr++) {
+		std::cout << *itr << "\n";
 	}
 	printf("\n");
 
