@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-typedef int (*PFunc)();
+using PFunc = void (*)(int);
 
 // サイコロの目をランダムで決定
 int RandomDice() {
@@ -11,34 +11,24 @@ int RandomDice() {
 	return result;
 }
 
-// 3秒間時間を止める
-void SetTimeout(int waitTime) {
-	Sleep(1000 * waitTime);
-}
-
 // 答え
-void Answer(PFunc p, int selectAnswer) {
-	printf("正解は...?\n");
-	// 3秒間処理を停止
-	SetTimeout(3);
-
-	// 正解のサイコロ
-	int answerNum = p() % 2;
-	// 予想したサイコロ
-	int selectNum = selectAnswer % 2;
-
+void Answer(int selectAnswer) {
+	int diceResult = RandomDice();
 	// 偶数なら丁
-	if (answerNum == 0) {
+	if (diceResult % 2 == 0) {
 		printf("丁!\n");
-		SetTimeout(1.5f);
+		Sleep(1000 * 1.5f);
 	}// 奇数なら半
-	else if(answerNum != 0){
+	else if (diceResult % 2 != 0) {
 		printf("半!\n");
-		SetTimeout(1.5f);
+		Sleep(1000 * 1.5f);
 	}
 
 	// どちらも同じ数なら正解
-	if (selectNum == answerNum) {
+	if (selectAnswer == 1 && diceResult % 2 != 0) {
+		printf("正解!!!\n\n");
+	}
+	else if (selectAnswer == 2 && diceResult % 2 == 0) {
 		printf("正解!!!\n\n");
 	}
 	else {
@@ -46,11 +36,17 @@ void Answer(PFunc p, int selectAnswer) {
 	}
 }
 
+void SetTimeout(PFunc p,int waitTime, int selectAnswer) {
+	printf("正解は...\n");
+	Sleep(1000 * waitTime);
+	p(selectAnswer);
+}
+
 int main() {
 	// サイコロの目をランダムで決定する
 	srand((unsigned int)time(nullptr));
 	// 関数ポインタ
-	PFunc pfunc = &RandomDice;
+	PFunc pfunc = Answer;
 	// 入力した予想
 	int selectAnswer;
 
@@ -60,8 +56,7 @@ int main() {
 		printf("予想:");
 		scanf_s("%d", &selectAnswer);
 
-		// 結果発表
-		Answer(pfunc, selectAnswer);
+		SetTimeout(pfunc, 3, selectAnswer);
 	}
 
 	return 0;
